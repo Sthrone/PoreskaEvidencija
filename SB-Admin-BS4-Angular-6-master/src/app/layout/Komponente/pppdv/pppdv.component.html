@@ -1,0 +1,223 @@
+<div [@routerTransition] *ngIf="pp">
+    <app-page-header [pocetna]="'_217'" [ugnjezdena]="'_218'" [icon]="'fa-th-list'"></app-page-header>
+    
+    <div id="pretraga" class="row" style="text-align: center;">
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row gen">
+          <div class="form-group col-md-5" (change)="ProveraGreske('godina')">
+            <label><span class="neophodno">* </span>{{ '_170' | translate }}:&nbsp;</label>
+            <input type="number" name="godina" [(ngModel)]="godina" class="red form-control mr-sm-2" />
+            <p class="help-block">{{ godinaGreska }}</p>
+          </div>
+          <div class="form-group col-md-5" (change)="ProveraGreske('mesec')">
+            <label><span class="neophodno">* </span>{{ '_171' | translate }}:&nbsp;</label>
+            <input type="number" name="mesec" [(ngModel)]="mesec" class="form-control mr-sm-2" />
+            <p class="help-block">{{ mesecGreska }}</p>
+          </div>
+          <div class="form-group col-md-2">
+            <label>&nbsp;</label>
+            <button (click)="GenerisiDokument()" id="dugmence" type="button" class="btn btn-secondary">{{ '_219' | translate }}</button>
+          </div>
+        </div>
+      </div>
+      <div clas="col-md-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" (keyup)="PromenaDodatneNaknade()">
+        <label matTooltip="{{ '_497' | translate }}" [matTooltipPosition]="position">&nbsp;{{ '_496' | translate }}:&nbsp;&nbsp;</label>
+        <input type="number" name="dodatna_naknada" [(ngModel)]="dodatnaNaknada" class="dodatna_naknada" />
+      </div>
+      <div class="col-md-6">
+          <button id="dugmence" (click)="PreuzmiPDF()" style="float: right;">{{ '_88' | translate }}</button>
+      </div>
+    </div>
+  
+    <br><br><br>
+
+    <!-- --------- STAMPA ---------  -->
+    <div id="content" #content>
+
+      <p class="vrh">{{ '_221' | translate }}</p>
+      <p class="vrh">{{ '_222' | translate }}</p>
+      <p class="vrh">{{ '_223' | translate }}</p>
+      <p class="vrh">{{ '_226' | translate }}</p>
+
+    
+      <div class="naslovi">
+        <h5>{{ '_227' | translate }}</h5>
+        <h6>{{ '_228' | translate }}</h6>
+        <h6>
+          {{ '_229' | translate }}
+          {{ pp.datum_od }}
+          {{ '_230' | translate }}
+          {{ pp.datum_do }}
+          {{ '_231' | translate }}
+        </h6>
+      </div>
+
+      <div style="text-align: center;">
+        <table class="licni_podaci">
+          <tr>
+            <th>{{ '_232' | translate }}:</th>
+            <td class="info">{{ pp.vrsta_prijave }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_233' | translate }}:</th>
+            <td class="info">{{ pp.id_prijave }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_234' | translate }}:</th>
+            <td class="info">{{ pp.tip_podnosioca }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_235' | translate }}:</th>
+            <td class="info">{{ pp.oznaka_poreskog_perioda }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_236' | translate }}:</th>
+            <td class="info">{{ pp.pib }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_237' | translate }}:</th>
+            <td class="info">{{ pp.naziv }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_238' | translate }}:</th>
+            <td class="info">{{ pp.adresa }}</td>
+          </tr>
+          <tr>
+            <th>{{ '_239' | translate }}:</th>
+            <td class="info">{{ pp.email }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="text-align: center;">
+          <table class="tab">
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;</td>
+              <td></td>
+              <td colspan="2" style="text-align: center;">{{ '_240' | translate }}</td>
+              <td colspan="2" style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;{{ '_241' | translate }}</td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;</td>
+              <td class="mini-naslov">{{ '_242' | translate }}</td>
+              <td class="desno"></td>
+              <td></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;1.&nbsp;</td>
+              <td>{{ '_243' | translate }}</td>
+              <td class="desno">001</td>
+              <td><p class="popunjeno">{{ pp.promet_sa_pravom }}</p></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;2.&nbsp;</td>
+              <td>{{ '_244' | translate }}</td>
+              <td class="desno">002</td>
+              <td><p class="popunjeno">{{ pp.promet_bez_prava }}</p></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;3.&nbsp;</td>
+              <td>{{ '_245' | translate }}</td>
+              <td class="desno">003</td>
+              <td><p class="popunjeno">{{ pp.opsta_stopa_bpdv }}</p></td>
+              <td class="desno">103</td>
+              <td><p class="popunjeno">{{ pp.opsta_stopa_spdv }}</p></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;4.&nbsp;</td>
+              <td>{{ '_246' | translate }}</td>
+              <td class="desno">004</td>
+              <td><p class="popunjeno">{{ pp.posebna_stopa_bpdv }}</p></td>
+              <td class="desno">104</td>
+              <td><p class="popunjeno">{{ pp.posebna_stopa_spdv }}</p></td>
+            </tr>
+            <tr class="zbirni_naslov">
+              <td>&nbsp;&nbsp;5.&nbsp;</td>
+              <td>{{ '_247' | translate }}</td>
+              <td class="desno">005</td>
+              <td><p class="popunjeno">{{ pp.zbir_promet_bpdv }}</p></td>
+              <td class="desno">105</td>
+              <td><p class="popunjeno">{{ pp.zbir_promet_spdv }}</p></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;</td>
+              <td class="mini-naslov">{{ '_248' | translate }}</td>
+              <td class="desno"></td>
+              <td></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;6.&nbsp;</td>
+              <td>{{ '_249' | translate }}</td>
+              <td class="desno">006</td>
+              <td><p class="popunjeno">{{ pp.uvoz_bpdv }}</p></td>
+              <td class="desno">106</td>
+              <td><p class="popunjeno">{{ pp.uvoz_spdv }}</p></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;7.&nbsp;</td>
+              <td>{{ '_250' | translate }}</td>
+              <td class="desno">007</td>
+              <td><p class="popunjeno">{{ pp.polj_bpdv }}</p></td>
+              <td class="desno">107</td>
+              <td><p class="popunjeno">{{ pp.polj_spdv }}</p></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;8.&nbsp;</td>
+              <td>{{ '_251' | translate }}</td>
+              <td class="desno">008</td>
+              <td><p class="popunjeno">{{ pp.ostalo_bpdv }}</p></td>
+              <td class="desno">108</td>
+              <td><p class="popunjeno">{{ pp.ostalo_spdv }}</p></td>
+            </tr>
+            <tr class="zbirni_naslov">
+              <td>&nbsp;&nbsp;9.&nbsp;</td>
+              <td>{{ '_252' | translate }}</td>
+              <td class="desno">009</td>
+              <td><p class="popunjeno">{{ pp.zbir_porez_bpdv }}</p></td>
+              <td class="desno">109</td>
+              <td><p class="popunjeno">{{ pp.zbir_porez_spdv }}</p></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="mini-naslov">{{ '_253' | translate }}</td>
+              <td class="desno"></td>
+              <td></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+            <tr class="zbirni_naslov">
+              <td>&nbsp;&nbsp;10.&nbsp;</td>
+              <td>{{ '_254' | translate }}</td>
+              <td class="desno"></td>
+              <td></td>
+              <td class="desno">110</td>
+              <td><p class="popunjeno">{{ pp.poreska_obaveza }}</p></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;11.&nbsp;</td>
+              <td>{{ '_255' | translate }}</td>
+              <td class="desno"></td>
+              <td></td>
+              <td class="desno"></td>
+              <td></td>
+            </tr>
+          </table>
+      </div>
+
+    </div>
+
+</div>
+    

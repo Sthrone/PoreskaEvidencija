@@ -1,0 +1,184 @@
+<div [@routerTransition]>
+<app-page-header [pocetna]="'_15'" [ugnjezdena]="'_16'" [icon]="'far fa-file'"></app-page-header>
+
+  <!-- NAZIV DOBAVLJACA / SIFRA / PIB-JMBG -->
+  <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label><span class="neophodno">* </span>{{ '_117' | translate }}:</label>
+                <ng-select 
+                    (change)="IzabranPartner()"
+                    name="naziv"  
+                    [items]="partneri"
+                    bindLabel="naziv"
+                    bindValue="id_partnera"
+                    [(ngModel)]="kpr.id_partnera" 
+                    placeholder="{{ '_137' | translate }}"
+                    notFoundText="{{ '_138' | translate }}"
+                >
+                </ng-select>
+                <p class="help-block">{{ nazivGreska }}</p>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <fieldset disabled="">
+                <div class="form-group">
+                    <label for="disabledSelect">{{ '_118' | translate }}:</label>
+                    <input type="text" name="sifra_partnera" [(ngModel)]="sifraPartnera" class="form-control" disabled="">
+                    <p class="help-block"></p>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset disabled="">
+                <label for="disabledSelect">{{ '_119' | translate }}:</label>
+                <input type="text" name="pib" [(ngModel)]="pibPartnera" class="form-control" disabled="">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+    <br>
+
+    <!-- DATUM KNJIZENJA / BROJ RACUNA / DATUM RACUNA / UKUPNA NAKNADA -->
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('datum_knjizenja_isprave')">
+                <label><span class="neophodno">* </span>{{ '_120' | translate }}:</label>
+                <input type="text" name="datum_knjizenja_isprave" [(ngModel)]="kpr.datum_knjizenja_isprave" class="form-control">
+                <p class="help-block">{{ datumKnjizenjaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('broj_racuna')">
+                <label><span class="neophodno">* </span>{{ '_121' | translate }}:</label>
+                <input type="text" name="broj_racuna" [(ngModel)]="kpr.broj_racuna" class="form-control">
+                <p class="help-block">{{ brojRacunaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('datum_racuna')">
+                <label><span class="neophodno">* </span>{{ '_122' | translate }}:</label>
+                <input type="text" name="datum_racuna" [(ngModel)]="kpr.datum_racuna" class="form-control">
+                <p class="help-block">{{ datumRacunaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <fieldset class="form-group" (change)="ProveraGreske('ukupna_naknada_sa_pdv')">
+                <label><span class="neophodno">* </span>{{ '_123' | translate }}:</label>
+                <input type="number" name="ukupna_naknada_sa_pdv" [(ngModel)]="kpr.ukupna_naknada_sa_pdv" class="form-control">
+                <p class="help-block">{{ ukupnaNaknadaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>    
+    </div>
+
+    <!-- PRETH PDV / PDV KOJI SE MOZE ODBITI / PDV KOJI SE NE MOZE ODBITI / OSLOBODJENA / NISU OBVEZNICI -->
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('ukupan_iznos_obracunatog_prethodnog_pdv')">
+                <label><span class="neophodno">* </span>{{ '_124' | translate }}:</label>
+                <input type="number" name="ukupan_iznos_obracunatog_prethodnog_pdv" [(ngModel)]="kpr.ukupan_iznos_obracunatog_prethodnog_pdv" class="form-control">
+                <p class="help-block">{{ ukupanPrethodniGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('iznos_prethodnog_pdv_koji_se_moze_odbiti')">
+                <label><span class="neophodno">* </span>{{ '_125' | translate }}:</label>
+                <input type="number" name="iznos_prethodnog_pdv_koji_se_moze_odbiti" [(ngModel)]="kpr.iznos_prethodnog_pdv_koji_se_moze_odbiti" class="form-control">
+                <p class="help-block">{{ mozeOdbitiGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_126' | translate }}:</label>
+                <input type="text" name="iznos_prethodnog_pdv_koji_se_ne_moze_odbiti" [(ngModel)]="kpr.iznos_prethodnog_pdv_koji_se_ne_moze_odbiti" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_127' | translate }}:</label><br><br>
+                <input type="text" name="oslobodjena_nabavka" [(ngModel)]="kpr.oslobodjena_nabavka" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_128' | translate }}:</label>
+                <input type="text" name="nabavka_od_lica_koja_nisu_obveznici_pdv" [(ngModel)]="kpr.nabavka_od_lica_koja_nisu_obveznici_pdv" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+    <!-- NAKNADA ZA UVEZENA / VREDNOST UVOZA BEZ PDVa / IZNOS PDVa -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_129' | translate }}:</label>
+                <input type="text" name="naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv" [(ngModel)]="kpr.naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_130' | translate }}:</label><br><br>
+                <input type="text" name="vrednost_uvoza_bez_pdv" [(ngModel)]="kpr.vrednost_uvoza_bez_pdv" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_131' | translate }}:</label><br><br>
+                <input type="text" name="iznos_pdv" [(ngModel)]="kpr.iznos_pdv" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+    </div>
+
+    <!-- DATUM PLACANJA PRI UVOZU / VREDNOST PRIMLJENIH DOBARA / IZNOS NAKNADE POLJO -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group" (change)="ProveraGreske('datum_placanja_pri_uvozu_placanje_poljoprivredniku')">
+                <label>{{ '_132' | translate }}:</label>
+                <input type="text" name="datum_placanja_pri_uvozu_placanje_poljoprivredniku" [(ngModel)]="kpr.datum_placanja_pri_uvozu_placanje_poljoprivredniku" class="form-control">
+                <p class="help-block">{{ poljoprivredniciDatum }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_133' | translate }}:</label>
+                <input type="text" name="vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika" [(ngModel)]="kpr.vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_134' | translate }}:</label><br><br>
+                <input type="text" name="iznos_naknade_od_5_poljoprivredniku" [(ngModel)]="kpr.iznos_naknade_od_5_poljoprivredniku" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+    </div>
+    <br>
+
+
+    <button (click)="NapraviRacun()" type="button" class="btn btn-secondary">{{ '_135' | translate }}</button>&nbsp;&nbsp;
+    <button (click)="OcistiPolja()" type="button" class="btn btn-secondary">{{ '_136' | translate }}</button>
+
+
+</div>

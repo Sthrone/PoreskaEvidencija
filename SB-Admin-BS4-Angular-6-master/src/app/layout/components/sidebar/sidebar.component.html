@@ -1,0 +1,262 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <!--
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>{{ 'Dashboard' | translate }}</span>
+        </a>
+        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
+            <span>{{ 'Charts' | translate }}</span>
+        </a>
+        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;
+            <span>{{ 'Tables' | translate }}</span>
+        </a>
+        <a [routerLink]="['/forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-edit"></i>&nbsp;
+            <span>{{ 'Forms' | translate }}</span>
+        </a>
+        <a [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-desktop"></i>&nbsp;
+            <span>{{ 'Bootstrap Element' | translate }}</span>
+        </a>
+        <a [routerLink]="['/grid']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;
+            <span>{{ 'Bootstrap Grid' | translate }}</span>
+        </a>
+        <a [routerLink]="['/components']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-th-list"></i>&nbsp;
+            <span>{{ 'Component' | translate }}</span>
+        </a>
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('', 'pages')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Menu' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Submenu' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-file-o"></i>&nbsp;
+            <span>{{ 'Blank Page' | translate }}</span>
+        </a>
+        <a href="http://www.strapui.com/" class="list-group-item">
+            <i class="fa fa-caret-down"></i>&nbsp;
+            <span>{{ 'More Themes' | translate }}</span>
+        </a>
+        -->
+
+        <!-- **************************** KUPCI *********************************** -->
+
+        <div class="nested-menu">
+            <a [routerLink]="['/kupci']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="addExpandClass('kupci', 'pages')">
+                <i class="fa fas fa-id-card"></i>&nbsp;
+                <span>{{ '_9' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="kupciMeni === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/kupci/unos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_10' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/kupci/pregled']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_11' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- **************************** DOBAVLJACI *********************************** -->
+
+        <div class="nested-menu">
+            <a [routerLink]="['/dobavljaci']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="addExpandClass('dobavljaci', 'pages')">
+                <i class="fa far fa-industry"></i>&nbsp;
+                <span>{{ '_12' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="dobavljaciMeni === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/dobavljaci/unos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_13' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/dobavljaci/pregled']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_14' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- **************************** KPR *********************************** -->
+
+        <div class="nested-menu">
+            <a [routerLink]="['/kpr']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="addExpandClass('kpr', 'pages')">
+                <i class="fa far fa-file"></i>&nbsp;
+                <span>{{ '_15' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="kprMeni === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/kpr/unos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_16' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/kpr/pregled']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_17' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- **************************** KIR *********************************** -->
+
+        <div class="nested-menu">
+            <a [routerLink]="['/kir']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="addExpandClass('kir', 'pages')">
+                <i class="fa far fa-sticky-note"></i>&nbsp;
+                <span>{{ '_18' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="kirMeni === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/kir/unos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_19' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/kir/pregled']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ '_20' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <!-- **************************** PPPDV *********************************** -->
+
+        <a routerLink="/pppdv" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-th-list"></i>&nbsp;
+            <span>{{ '_217' | translate }}</span>
+        </a>
+
+
+        <!-- **************************** POPDV *********************************** -->
+
+        <a routerLink="/popdv" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>&nbsp;
+            <span>{{ '_256' | translate }}</span>
+        </a>
+        
+    <!--
+        <div class="header-fields">
+            <a (click)="rltAndLtr()" class="list-group-item">
+                <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+            </a>
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('languages')">
+                    <span><i class="fa fa-language"></i>&nbsp; {{ 'Language' | translate }} <b class="caret"></b></span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'languages'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('en')">
+                                {{ 'English' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('fr')">
+                                {{ 'French' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('ur')">
+                                {{ 'Urdu' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('es')">
+                                {{ 'Spanish' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('it')">
+                                {{ 'Italian' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('fa')">
+                                {{ 'Farsi' | translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="changeLang('de')">
+                                {{ 'German' | translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('profile')">
+                    <span><i class="fa fa-user"></i>&nbsp; John Smith</span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'profile'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/login']" (click)="onLoggedout()">
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    -->
+    </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
+        <span>{{ '_21' | translate }}</span>
+    </div>
+</nav>

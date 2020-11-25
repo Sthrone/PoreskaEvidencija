@@ -1,0 +1,1415 @@
+<div [@routerTransition] *ngIf="pp">
+  <app-page-header [pocetna]="'_256'" [ugnjezdena]="'_218'" [icon]="'fa-clipboard'"></app-page-header>
+  
+  <div id="pretraga" class="row" style="text-align: center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row gen">
+        <div class="form-group col-md-5" (change)="ProveraGreske('godina')">
+          <label><span class="neophodno">* </span>{{ '_170' | translate }}:&nbsp;</label>
+          <input type="number" name="godina" [(ngModel)]="godina" class="red form-control mr-sm-2" />
+          <p class="help-block">{{ godinaGreska }}</p>
+        </div>
+        <div class="form-group col-md-5" (change)="ProveraGreske('mesec')">
+          <label><span class="neophodno">* </span>{{ '_171' | translate }}:&nbsp;</label>
+          <input type="number" name="mesec" [(ngModel)]="mesec" class="form-control mr-sm-2" />
+          <p class="help-block">{{ mesecGreska }}</p>
+        </div>
+        <div class="form-group col-md-2">
+          <label>&nbsp;</label>
+          <button (click)="GenerisiDokument()" id="dugmence" type="button" class="btn btn-secondary">{{ '_219' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div clas="col-md-3"></div>
+  </div>
+
+
+  <!-- --------- STAMPA ---------  -->
+  <button id="dugmence" (click)="PreuzmiPDF()" style="float: right;">{{ '_88' | translate }}</button>
+  <br><br><br>
+
+  <div id="content" #content>
+    <br>
+    <p class="vrh" style="letter-spacing: 0.3px;">{{ '_257' | translate }}</p>
+  
+    <div class="naslovi" style="letter-spacing: 0.5px;">
+      <h6>
+        {{ '_258' | translate }}
+      </h6>
+      <h6>
+        {{ '_259' | translate }}
+        {{ obr.datum_od }}
+        {{ '_260' | translate }}
+        {{ obr.datum_do }}
+        {{ '_261' | translate }}
+      </h6>
+    </div>
+
+    <table width="100%" class="tab01">
+      <tr>
+        <th><span class="mini-naslov">{{ '_262' | translate }}</span></th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>{{ '_263' | translate }}</th>
+        <td class="info">{{ obr.naziv }}</td>
+      </tr>
+      <tr>
+        <th>{{ '_264' | translate }}</th>
+        <td class="info">{{ obr.pib }}</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <p class="iznad">{{ '_265' | translate }}</p>
+
+    <!--  1  -->
+    <table width="100%" class="tab02">
+      <tr>
+        <th colspan="2" class="veci_naslov">
+          <p class="nasl">{{ '_266' | translate }}</p>
+          <p class="nasl">{{ '_267' | translate }}</p>
+        </th>
+        <th class="manji_naslov">
+          <p class="nasl">{{ '_268' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_269a' | translate }}</p>
+          <p class="opis">{{ '_269b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_270a' | translate }}</p>
+          <p class="opis">{{ '_270b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_271a' | translate }}</p>
+          <p class="opis">{{ '_271b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_272a' | translate }}</p>
+          <p class="opis">{{ '_272b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>1.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_273' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_274' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>1.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_275' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+    </table>
+
+    <br>
+    
+    <!--  2  -->
+    <table width="100%" class="tab02">
+      <tr>
+        <th colspan="2" class="veci_naslov">
+          <p class="nasl">{{ '_276' | translate }}</p>
+          <p class="nasl">{{ '_277' | translate }}</p>
+        </th>
+        <th class="manji_naslov">
+          <p class="nasl">{{ '_278' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_279' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_280a' | translate }}</p>
+          <p class="opis">{{ '_280b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_281' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_282a' | translate }}</p>
+          <p class="opis">{{ '_282b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>2.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_283' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_284' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>2.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_285' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  3  -->
+    <table width="100%" class="tab03">
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl">{{ '_286' | translate }}</p>
+          <p class="nasl">{{ '_287' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_288' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_289' | translate }}</p>
+        </th>
+      </tr>
+      <tr>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_290' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_291' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_290' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_291' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_292a' | translate }}</p>
+          <p class="opis">{{ '_292b' | translate }}</p>
+          <p class="opis">{{ '_292c' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+    
+      <tr>
+        <td class="numeracija"><p>3.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_293a' | translate }}</p>
+          <p class="opis">{{ '_293b' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._3_2x1 }}</td>
+        <td class="vred">{{ obr._3_2x2 }}</td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_294a' | translate }}</p>
+          <p class="opis">{{ '_294b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>3.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_295a' | translate }}</p>
+          <p class="opis">{{ '_295b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_296' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_297' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+  
+      <tr>
+        <td class="numeracija"><p>3.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_298' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>3.8</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_299a' | translate }}</p>
+          <p class="opis">{{ '_299b' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._3_8x1 }}</td>
+        <td class="vred">{{ obr._3_8x2 }}</td>
+        <td class="vred">{{ obr._3_8x3 }}</td>
+        <td class="vred">{{ obr._3_8x4 }}</td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3.9</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_300a' | translate }}</p>
+          <p class="opis">{{ '_300b' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>3.10</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_301' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._3_10x1 }}</td>
+        <td class="vred">{{ obr._3_10x2 }}</td>
+        <td class="vred">{{ obr._3_10x3 }}</td>
+        <td class="vred">{{ obr._3_10x4 }}</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  3a  -->
+    <table width="100%" class="tab03">
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl">{{ '_302' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_303' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_304' | translate }}</p>
+        </th>
+      </tr>
+      <tr>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_305' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_305' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3а.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_306a' | translate }}</p>
+          <p class="opis">{{ '_306b' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+    
+      <tr>
+        <td class="numeracija"><p>3а.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_307a' | translate }}</p>
+          <p class="opis">{{ '_307b' | translate }}</p>
+          <p class="opis">{{ '_307c' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3а.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_308a' | translate }}</p>
+          <p class="opis">{{ '_308b' | translate }}</p>
+          <p class="opis">{{ '_308c' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>3а.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_309' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3а.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_310' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3а.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_311' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+  
+      <tr class="ukupno">
+        <td class="numeracija"><p>3а.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_312a' | translate }}</p>
+          <p class="opis">{{ '_312b' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>3а.8</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_313a' | translate }}</p>
+          <p class="opis">{{ '_313b' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>3а.9</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_314' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  4  -->
+    <table width="100%" class="tab03">
+      <tr>
+        <th colspan="6" class="ogroman_naslov" style="border-bottom: none;">
+          <p class="nasl">{{ '_315' | translate }}</p>
+        </th>
+      </tr>
+    </table>
+    <table width="100%" class="tab03">
+      <tr>
+        <th colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_316' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_317' | translate }}</p>
+          <p class="nasl_min">{{ '_318' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_319' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.1.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_320' | translate }}</p>
+          <p class="opis">{{ '_321' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>4.1.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_322' | translate }}</p>
+          <p class="opis">{{ '_323' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.1.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_324' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.1.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_325' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_326' | translate }}</p>
+          <p class="nasl_min">{{ '_327' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_328' | translate }}</p>
+          <p class="nasl_min">{{ '_329' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_330' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_331' | translate }}</p>
+          <p class="nasl_min">{{ '_332' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_333' | translate }}</p>
+          <p class="nasl_min">{{ '_334' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_331' | translate }}</p>
+          <p class="nasl_min">{{ '_332' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_333' | translate }}</p>
+          <p class="nasl_min">{{ '_334' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.2.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_335' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>4.2.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_336' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.2.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_337' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>4.2.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_338' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  5  -->
+    <table width="100%" class="tab04">
+      <tr>
+        <th colspan="2" class="veci_naslov">
+          <p class="nasl">{{ '_339' | translate }}</p>
+        </th>
+        <th class="manji_naslov">
+          <p class="nasl">{{ '_340' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_341' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_1 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_342' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_2 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_343' | translate }}</p>
+          <p class="opis">{{ '_344' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_3 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_345' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_4 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_346' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_5 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_347' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_6 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>5.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_348' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._5_7 }}</td>
+      </tr>
+    </table>
+
+    <br><br><br><br><br><br><br>
+
+    <!--  6  -->
+    <table width="100%" class="tab05">
+      <tr>
+        <th colspan="6" class="ogroman_naslov" style="border-bottom: none;">
+          <p class="nasl">{{ '_349' | translate }}</p>
+        </th>
+      </tr>
+    </table>
+    <table width="100%" class="tab05">
+      <tr class="ukupno">
+        <th colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_350' | translate }}</p>
+          <p class="nasl_min">{{ '_351' | translate }}</p>
+          <p class="nasl_min">{{ '_352' | translate }}</p>
+        </th>
+        <th colspan="2" class="dvred">
+        </th>
+      </tr>
+
+      <tr>
+        <th colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_353' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_354' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl_min">{{ '_355' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>6.2.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_356' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>6.2.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_357' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>6.2.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_358' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>6.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_359' | translate }}</p>
+          <p class="opis">{{ '_360' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+  
+      <tr class="ukupno">
+        <td class="numeracija"><p>6.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_361' | translate }}</p>
+          <p class="opis">{{ '_362' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  7  -->
+    <table width="100%" class="tab03">
+      <tr>
+        <th colspan="2" class="veliki_naslov">
+          <p class="nasl">{{ '_363' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl">{{ '_364' | translate }}</p>
+          <p class="nasl">{{ '_365' | translate }}</p>
+        </th>
+        <th class="srednji_naslov">
+          <p class="nasl">{{ '_366' | translate }}</p>
+          <p class="nasl">{{ '_367' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>7.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_368' | translate }}</p>
+          <p class="opis">{{ '_369' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+    
+      <tr>
+        <td class="numeracija"><p>7.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_370' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>7.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_371' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+      
+      <tr class="ukupno">
+        <td class="numeracija"><p>7.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_372' | translate }}</p>
+        </td>
+        <td class="dvred"></td>
+        <td class="dvred"></td>
+      </tr>
+    </table>
+    
+    <br>
+
+    <!--  8  -->
+    <table width="100%" class="tab06">
+      <tr>
+        <th colspan="6" class="ogroman_naslov" style="border-bottom: none;">
+          <p class="nasl">{{ '_373' | translate }}</p>
+        </th>
+      </tr>
+    </table>
+    <table width="100%" class="tab06">
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_374' | translate }}</p>
+          <p class="nasl_min">{{ '_375' | translate }}</p>
+          <p class="nasl_min">{{ '_376' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_377' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_378' | translate }}</p>
+        </th>
+      </tr>
+      <tr>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_379' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_380' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_379' | translate }}</p>
+        </th>
+        <th class="mali_naslov">
+          <p class="nasl_min">{{ '_380' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8а.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_381' | translate }}</p>
+          <p class="opis">{{ '_382' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+    
+      <tr>
+        <td class="numeracija"><p>8а.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_383' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._8a_2x1 }}</td>
+        <td class="vred">{{ obr._8a_2x1 }}</td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8а.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_384' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>8а.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_385' | translate }}</p>
+          <p class="opis">{{ '_386' | translate }}</p>
+          <p class="opis">{{ '_387' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8а.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_388' | translate }}</p>
+          <p class="opis">{{ '_389' | translate }}</p>
+          <p class="opis">{{ '_390' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8a.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_391' | translate }}</p>
+          <p class="opis">{{ '_392' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._8a_6x1 }}</td>
+        <td class="vred">{{ obr._8a_6x2 }}</td>
+        <td class="vred">{{ obr._8a_6x3 }}</td>
+        <td class="vred">{{ obr._8a_6x4 }}</td>
+      </tr>
+  
+      <tr>
+        <td class="numeracija"><p>8a.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_393' | translate }}</p>
+          <p class="opis">{{ '_394' | translate }}</p>
+        </td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+        <td class="vred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8a.8</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_395' | translate }}</p>
+          <p class="opis">{{ '_396' | translate }}</p>
+          <p class="opis">{{ '_397' | translate }}</p>
+        </td>
+        <td class="vred">{{ obr._8a_8x1 }}</td>
+        <td class="vred">{{ obr._8a_8x2 }}</td>
+        <td class="vred">{{ obr._8a_8x3 }}</td>
+        <td class="vred">{{ obr._8a_8x4 }}</td>
+      </tr>
+
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_398' | translate }}</p>
+          <p class="nasl_min">{{ '_399' | translate }}</p>
+          <p class="nasl_min">{{ '_400' | translate }}</p>
+        </th>
+        <th colspan="4" class="drugi_veliki_naslov">
+          <p class="nasl_min">{{ '_401' | translate }}</p>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_402' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_403' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_404' | translate }}</p>
+          <p class="opis">{{ '_405' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_406' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_407' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_408' | translate }}</p>
+          <p class="opis">{{ '_409' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_410' | translate }}</p>
+          <p class="opis">{{ '_411' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8б.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_412' | translate }}</p>
+          <p class="opis">{{ '_413' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8б.7</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_414' | translate }}</p>
+          <p class="opis">{{ '_415' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <th colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_416' | translate }}</p>
+          <p class="nasl_min">{{ '_417' | translate }}</p>
+          <p class="nasl_min">{{ '_418' | translate }}</p>
+        </th>
+        <th colspan="4" class="drugi_veliki_naslov">
+          <p class="nasl_min">{{ '_419' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8в.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_420' | translate }}</p>
+          <p class="opis">{{ '_421' | translate }}</p>
+          <p class="opis">{{ '_422' | translate }}</p>
+          <p class="opis">{{ '_423' | translate }}</p>
+        </td>
+        <td colspan="4" class="cvred">{{ obr._8v_1 }}</td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8в.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_424' | translate }}</p>
+          <p class="opis">{{ '_425' | translate }}</p>
+          <p class="opis">{{ '_426' | translate }}</p>
+        </td>
+        <td colspan="4" class="cvred">{{ obr._8v_2 }}</td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>8в.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_427' | translate }}</p>
+        </td>
+        <td colspan="4" class="cvred">{{ obr._8v_3 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8в.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_428' | translate }}</p>
+          <p class="opis">{{ '_429' | translate }}</p>
+        </td>
+        <td colspan="4" class="cvred">{{ obr._8v_4 }}</td>
+      </tr>
+
+      <tr>
+        <th rowspan="2" colspan="2" class="veliki_naslov">
+          <p class="nasl_min">{{ '_430' | translate }}</p>
+          <p class="nasl_min">{{ '_431' | translate }}</p>
+          <p class="nasl_min">{{ '_432' | translate }}</p>
+        </th>
+        <th colspan="4" class="drugi_veliki_naslov">
+          <p class="nasl_min">{{ '_433' | translate }}</p>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_434' | translate }}</p>
+        </th>
+        <th colspan="2" class="srednji_naslov">
+          <p class="nasl_min">{{ '_435' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8г.1</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_436' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+      
+      <tr>
+        <td class="numeracija"><p>8г.2</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_437' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8г.3</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_438' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+  
+      <tr>
+        <td class="numeracija"><p>8г.4</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_439' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8г.5</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_440' | translate }}</p>
+          <p class="opis">{{ '_441' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8г.6</p></td>
+        <td class="desc">
+          <p class="opis">{{ '_442' | translate }}</p>
+          <p class="opis">{{ '_443' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_444' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          <p class="nasl_min">{{ '_445' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8д.1</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_446' | translate }}</p>
+          <p class="opis">{{ '_447' | translate }}</p>
+          <p class="opis">{{ '_448' | translate }}</p>
+          <p class="opis">{{ '_449' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8д.2</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_450' | translate }}</p>
+          <p class="opis">{{ '_451' | translate }}</p>
+          <p class="opis">{{ '_452' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8д.3</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_453' | translate }}</p>
+          <p class="opis">{{ '_454' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td colspan="4" class="lldesc">
+          <p class="opis" style="text-align: center;">{{ '_455' | translate }}</p>
+          <p class="opis" style="text-align: center;">{{ '_456' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred">{{ obr._8dj }}</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  8e  -->
+    <table width="100%" class="tab07">
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_457' | translate }}</p>
+          <p class="nasl_min">{{ '_458' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          <p class="nasl_min">{{ '_459' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8е.1</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_460' | translate }}</p>
+          <p class="opis">{{ '_461' | translate }}</p>
+          <p class="opis">{{ '_462' | translate }}</p>
+          <p class="opis">{{ '_463' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8e.2</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_464' | translate }}</p>
+          <p class="opis">{{ '_465' | translate }}</p>
+          <p class="opis">{{ '_466' | translate }}</p>
+          <p class="opis">{{ '_467' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8e.3</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_468' | translate }}</p>
+          <p class="opis">{{ '_469' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>8e.4</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_470' | translate }}</p>
+          <p class="opis">{{ '_471' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8e.5</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_472' | translate }}</p>
+          <p class="opis">{{ '_473' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>8e.6</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_474' | translate }}</p>
+          <p class="opis">{{ '_475' | translate }}</p>
+          <p class="opis">{{ '_476' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+    </table>
+      
+    <br><br><br><br><br>
+
+    <!--  9  -->
+    <table width="100%" class="tab07">
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_477' | translate }}</p>
+          <p class="nasl_min">{{ '_478' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          {{ obr._9 }}
+        </th>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  9a  -->
+    <table width="100%" class="tab08">
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_479' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          <p class="nasl_min">{{ '_480' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>9a.1</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_481' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred">{{ obr._9a_1 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>9a.2</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_482' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred">{{ obr._9a_2 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>9a.3</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_483' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred">{{ obr._9a_3 }}</td>
+      </tr>
+
+      <tr class="ukupno">
+        <td class="numeracija"><p>9a.4</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_484' | translate }}</p>
+          <p class="opis">{{ '_485' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred">{{ obr._9a_4 }}</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  10  -->
+    <table width="100%" class="tab07">
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_486' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          {{ obr._10 }}
+        </th>
+      </tr>
+    </table>
+
+    <br>
+
+    <!--  11  -->
+    <table width="100%" class="tab07">
+      <tr>
+        <th colspan="4" class="naslov_75">
+          <p class="nasl_min">{{ '_487' | translate }}</p>
+          <p class="nasl_min">{{ '_488' | translate }}</p>
+        </th>
+        <th colspan="2" class="naslov_25">
+          <p class="nasl_min">{{ '_489' | translate }}</p>
+        </th>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>11.1</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_490' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>11.2</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_491' | translate }}</p>
+          <p class="opis">{{ '_492' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+
+      <tr>
+        <td class="numeracija"><p>11.3</p></td>
+        <td colspan="3" class="ldesc">
+          <p class="opis">{{ '_493' | translate }}</p>
+        </td>
+        <td colspan="2" class="dvred"></td>
+      </tr>
+    </table>
+    
+    <br>
+    
+    <p style="margin: 0; padding: 0;">{{ '_494' | translate }}</p>
+    <p style="margin: 0; padding: 0;">{{ '_495' | translate }}</p>
+
+  </div>
+</div>
+  
+

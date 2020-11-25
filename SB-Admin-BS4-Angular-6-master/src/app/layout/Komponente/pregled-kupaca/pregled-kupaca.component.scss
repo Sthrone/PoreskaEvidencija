@@ -1,0 +1,45 @@
+tr
+{
+    cursor: pointer;
+}
+
+.zamenaTabele
+{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; 
+    background-color: lightgray;
+    color: black;
+    font-style: italic;
+}
+
+.card-body
+{
+    margin-bottom: 0;
+}
+
+.paginacija /deep/ .ngx-pagination .current 
+{
+    background: gray;
+}
+
+#dugmence
+{
+    min-width: 150px;
+    font-weight: 550;
+    background-color: #eee;
+    border-color: #e1e1e1;
+    color: black;
+}
+
+#dugmence:hover
+{
+    background-color: #e1e1e1;
+}
+
+.hovy:hover
+{
+    font-weight: bold;
+}

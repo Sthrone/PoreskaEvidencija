@@ -1,0 +1,95 @@
+<div [@routerTransition]  *ngIf="prikazaniDobavljaci">
+    <app-page-header [pocetna]="'_12'" [ugnjezdena]="'_14'" [icon]="'fas fa-id-card'"></app-page-header>
+
+    <div style="text-align: center;">
+        <app-pretraga-partnera [sviPartneri]="sviDobavljaci" (pretrazeno)="IzvrsenaPretraga($event)"></app-pretraga-partnera>
+        &nbsp;
+        <app-kolone-partnera [kolone]="kolone" (pretrazeno)="IzmenjeneKolone($event)"></app-kolone-partnera>
+    </div>
+    <div class="card">
+        <!-- <div class="card-header"></div> -->
+        <table class="card-body table table-hover">
+            <thead>
+            <tr style="background-color: #eee;">
+                <th *ngIf="kolone[0]">{{ '_69' | translate }}</th>
+                <th *ngIf="kolone[1]">{{ '_70' | translate }}</th>
+                <th *ngIf="kolone[2]">{{ '_71' | translate }}</th>
+                <th *ngIf="kolone[3]">{{ '_72' | translate }}</th>
+                <th *ngIf="kolone[4]">{{ '_73' | translate }}</th>
+                <th *ngIf="kolone[5]">{{'_114' | translate }}</th>
+                <th *ngIf="kolone[6]">{{ '_74' | translate }}</th>
+                <th *ngIf="kolone[7]">{{ '_75' | translate }}</th>
+                <th *ngIf="kolone[8]">{{ '_76' | translate }}</th>
+                <th *ngIf="kolone[9]">{{ '_77' | translate }}</th>
+                <th colspan="2"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let k of prikazaniDobavljaci | paginate: { itemsPerPage: 10, currentPage: p }; let i = index;' (mouseover)="hoveredIndex = i">
+                    <td *ngIf="kolone[0]">{{ k.sifra_partnera }}</td>
+                    <td *ngIf="kolone[1]">{{ k.naziv }}</td>
+                    <td *ngIf="kolone[2]">{{ k.ulica }}<span *ngIf="k.ulica != null && (k.broj_objekta != null || k.mesto != null || k.postanski_broj != null)">,&nbsp;</span>{{ k.broj_objekta }}<span *ngIf="k.broj_objekta != null && (k.mesto != null || k.postanski_broj != null)">,&nbsp;</span>{{ k.mesto }}<span *ngIf="k.mesto != null && k.postanski_broj != null">,&nbsp;</span>{{ k.postanski_broj }}</td>
+                    <td *ngIf="kolone[3]">{{ k.ime_vlasnika }} {{ k.prezime_vlasnika }}</td>
+                    <td *ngIf="kolone[4]">{{ k.telefon }}</td>
+                    <td *ngIf="kolone[5]">{{ k.email }}</td>
+                    <td *ngIf="kolone[6]">{{ k.pib }}</td>
+                    <td *ngIf="kolone[7]">{{ k.ziro_racun }}</td>
+                    <td *ngIf="kolone[8]">{{ k.maticni_broj }}</td>
+                    <td *ngIf="kolone[9]">{{ k.sifra_delatnosti }}</td>
+                    <td><i (click)="IzmeniDobavljaca(k)" *ngIf="i == hoveredIndex" class="hovy fa far fa-edit"></i></td>
+                    <td><i (click)="ObrisiDobavljaca(k)" *ngIf="i == hoveredIndex" class="hovy fa fa-remove"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="zamenaTabele" [hidden]="prikazaniDobavljaci.length != 0">{{ '_84' | translate }}</div>
+    </div>
+    <br>
+    <pagination-controls class="paginacija" responsive="true" [hidden]="prikazaniDobavljaci.length == 0" (pageChange)="p = $event" style="text-align: center" previousLabel="{{ '_86' | translate }}" nextLabel="{{ '_85' | translate }}"></pagination-controls>
+    
+
+
+    <!-- --------- STAMPA ---------  -->
+    <button *ngIf="!stampa" id="dugmence" (click)="PreuzmiPDF()">{{ '_87' | translate }}</button>
+    <div *ngIf="stampa">
+        <button id="dugmence" (click)="PreuzmiPDF()">{{ '_88' | translate }}</button>&nbsp;
+        <button id="dugmence" (click)="ZatvoriStampu()">{{ '_89' | translate }}</button>
+    </div>
+
+    <div *ngIf="stampa" id="content" #content>
+        <h4 style="text-align: center;">{{ '_12' | translate }}</h4>
+        <h6 style="text-align: center;">{{ today | date:'dd.MM.yyy' }}</h6>
+        <br>
+        <table class="card-body table table-hover">
+            <thead>
+                <tr style="background-color: rgb(224, 224, 224);">
+                    <th *ngIf="kolone[0]">{{ '_69' | translate }}</th>
+                    <th *ngIf="kolone[1]">{{ '_70' | translate }}</th>
+                    <th *ngIf="kolone[2]">{{ '_71' | translate }}</th>
+                    <th *ngIf="kolone[3]">{{ '_72' | translate }}</th>
+                    <th *ngIf="kolone[4]">{{ '_73' | translate }}</th>
+                    <th *ngIf="kolone[5]">{{'_114' | translate }}</th>
+                    <th *ngIf="kolone[6]">{{ '_74' | translate }}</th>
+                    <th *ngIf="kolone[7]">{{ '_75' | translate }}</th>
+                    <th *ngIf="kolone[8]">{{ '_76' | translate }}</th>
+                    <th *ngIf="kolone[9]">{{ '_77' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let k of prikazaniDobavljaci'>
+                    <td *ngIf="kolone[0]">{{ k.sifra_partnera }}</td>
+                    <td *ngIf="kolone[1]">{{ k.naziv }}</td>
+                    <td *ngIf="kolone[2]">{{ k.ulica }}<span *ngIf="k.ulica != null && (k.broj_objekta != null || k.mesto != null || k.postanski_broj != null)">,&nbsp;</span>{{ k.broj_objekta }}<span *ngIf="k.broj_objekta != null && (k.mesto != null || k.postanski_broj != null)">,&nbsp;</span>{{ k.mesto }}<span *ngIf="k.mesto != null && k.postanski_broj != null">,&nbsp;</span>{{ k.postanski_broj }}</td>
+                    <td *ngIf="kolone[3]">{{ k.ime_vlasnika }} {{ k.prezime_vlasnika }}</td>
+                    <td *ngIf="kolone[4]">{{ k.telefon }}</td>
+                    <td *ngIf="kolone[5]">{{ k.email }}</td>
+                    <td *ngIf="kolone[6]">{{ k.pib }}</td>
+                    <td *ngIf="kolone[7]">{{ k.ziro_racun }}</td>
+                    <td *ngIf="kolone[8]">{{ k.maticni_broj }}</td>
+                    <td *ngIf="kolone[9]">{{ k.sifra_delatnosti }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+     

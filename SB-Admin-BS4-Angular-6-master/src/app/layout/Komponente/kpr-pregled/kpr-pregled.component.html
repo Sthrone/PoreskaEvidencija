@@ -1,0 +1,232 @@
+<div [@routerTransition] *ngIf="prikazaniRacuni">
+<app-page-header [pocetna]="'_15'" [ugnjezdena]="'_17'" [icon]="'far fa-file'"></app-page-header>
+
+    <div style="text-align: center;">
+        <app-kolone-kpr [kolone]="kolone" (pretrazeno)="IzmenjeneKolone($event)"></app-kolone-kpr>&nbsp;
+        <app-pretraga-racuna [sviRacuni]="sviRacuni" (pretrazeno)="IzvrsenaPretraga($event)"></app-pretraga-racuna>
+    </div>
+    <div class="table-responsive">
+        <!-- <div class="card-header"></div> -->
+        <table id="tab" class="card-body table table-hover">
+            <thead>
+                <tr style="background-color: #eee;">
+                    <th *ngIf="kolone[0]" matTooltip="{{ '_149' | translate }}" [matTooltipPosition]="position">{{ '_148' | translate }}</th>
+                    <th *ngIf="kolone[1]" matTooltip="{{ '_120' | translate }}" [matTooltipPosition]="position">{{ '_150' | translate }}</th>
+                    <th *ngIf="kolone[2]" matTooltip="{{ '_117' | translate }}" [matTooltipPosition]="position">{{ '_151' | translate }}</th>
+                    <th *ngIf="kolone[3]" matTooltip="{{ '_118' | translate }}" [matTooltipPosition]="position">{{ '_152' | translate }}</th>
+                    <th *ngIf="kolone[4]" matTooltip="{{ '_119' | translate }}" [matTooltipPosition]="position">{{ '_153' | translate }}</th>
+                    <th *ngIf="kolone[5]" matTooltip="{{ '_121' | translate }}" [matTooltipPosition]="position">{{ '_154' | translate }}</th>
+                    <th *ngIf="kolone[6]" matTooltip="{{ '_122' | translate }}" [matTooltipPosition]="position">{{ '_155' | translate }}</th>
+                    <th *ngIf="kolone[7]" matTooltip="{{ '_123' | translate }}" [matTooltipPosition]="position">{{ '_156' | translate }}</th>
+                    <th *ngIf="kolone[8]" matTooltip="{{ '_124' | translate }}" [matTooltipPosition]="position">{{ '_157' | translate }}</th>
+                    <th *ngIf="kolone[9]" matTooltip="{{ '_125' | translate }}" [matTooltipPosition]="position">{{ '_158' | translate }}</th>
+                    <th *ngIf="kolone[10]" matTooltip="{{ '_126' | translate }}" [matTooltipPosition]="position">{{ '_159' | translate }}</th>
+                    <th *ngIf="kolone[11]" matTooltip="{{ '_127' | translate }}" [matTooltipPosition]="position">{{ '_160' | translate }}</th>
+                    <th *ngIf="kolone[12]" matTooltip="{{ '_128' | translate }}" [matTooltipPosition]="position">{{ '_161' | translate }}</th>
+                    <th *ngIf="kolone[13]" matTooltip="{{ '_129' | translate }}" [matTooltipPosition]="position">{{ '_162' | translate }}</th>
+                    <th *ngIf="kolone[14]" matTooltip="{{ '_130' | translate }}" [matTooltipPosition]="position">{{ '_163' | translate }}</th>
+                    <th *ngIf="kolone[15]" matTooltip="{{ '_131' | translate }}" [matTooltipPosition]="position">{{ '_164' | translate }}</th>
+                    <th *ngIf="kolone[16]" matTooltip="{{ '_132' | translate }}" [matTooltipPosition]="position">{{ '_165' | translate }}</th>
+                    <th *ngIf="kolone[17]" matTooltip="{{ '_133' | translate }}" [matTooltipPosition]="position">{{ '_166' | translate }}</th>
+                    <th *ngIf="kolone[18]" matTooltip="{{ '_134' | translate }}" [matTooltipPosition]="position">{{ '_167' | translate }}</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let k of prikazaniRacuni | paginate: { itemsPerPage: 10, currentPage: p }; let i = index;' (mouseover)="hoveredIndex = i">
+                    <td *ngIf="kolone[0]">{{ k.redni_broj }}</td>
+                    <td *ngIf="kolone[1]">{{ k.datum_knjizenja_isprave }}</td>
+                    <td *ngIf="kolone[2]">{{ k.naziv }}</td>
+                    <td *ngIf="kolone[3]">{{ k.sifra_partnera }}</td>
+                    <td *ngIf="kolone[4]">{{ k.pib }}</td>
+                    <td *ngIf="kolone[5]">{{ k.broj_racuna }}</td>
+                    <td *ngIf="kolone[6]">{{ k.datum_racuna }}</td>
+                    <td *ngIf="kolone[7]">{{ k.ukupna_naknada_sa_pdv }}</td>
+                    <td *ngIf="kolone[8]">{{ k.ukupan_iznos_obracunatog_prethodnog_pdv }}</td>
+                    <td *ngIf="kolone[9]">{{ k.iznos_prethodnog_pdv_koji_se_moze_odbiti }}</td>
+                    <td *ngIf="kolone[10]">{{ k.iznos_prethodnog_pdv_koji_se_ne_moze_odbiti }}</td>
+                    <td *ngIf="kolone[11]">{{ k.oslobodjena_nabavka }}</td>
+                    <td *ngIf="kolone[12]">{{ k.nabavka_od_lica_koja_nisu_obveznici_pdv }}</td>
+                    <td *ngIf="kolone[13]">{{ k.naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv }}</td>
+                    <td *ngIf="kolone[14]">{{ k.vrednost_uvoza_bez_pdv }}</td>
+                    <td *ngIf="kolone[15]">{{ k.iznos_pdv }}</td>
+                    <td *ngIf="kolone[16]">{{ k.datum_placanja_pri_uvozu_placanje_poljoprivredniku }}</td>
+                    <td *ngIf="kolone[17]">{{ k.vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika }}</td>
+                    <td *ngIf="kolone[18]">{{ k.iznos_naknade_od_5_poljoprivredniku }}</td>
+                    <td><i (click)="IzmeniRacun(k)" *ngIf="i == hoveredIndex" class="hovy fa far fa-edit"></i></td>
+                    <td><i (click)="ObrisiRacun(k)" *ngIf="i == hoveredIndex" class="hovy fa fa-remove"></i></td>
+                </tr>
+                <tr [hidden]="prikazaniRacuni.length == 0" class="totals">
+                    <td colspan="2" *ngIf="kolone[0]">{{ '_176' | translate }}:&nbsp;{{ suma.redni_broj }}</td>
+                    <td *ngIf="kolone[2]"></td>
+                    <td *ngIf="kolone[3]"></td>
+                    <td *ngIf="kolone[4]"></td>
+                    <td *ngIf="kolone[5]"></td>
+                    <td *ngIf="kolone[6]"></td>
+                    <td *ngIf="kolone[7]">{{ suma.ukupna_naknada_sa_pdv }}</td>
+                    <td *ngIf="kolone[8]">{{ suma.ukupan_iznos_obracunatog_prethodnog_pdv }}</td>
+                    <td *ngIf="kolone[9]">{{ suma.iznos_prethodnog_pdv_koji_se_moze_odbiti }}</td>
+                    <td *ngIf="kolone[10]">{{ suma.iznos_prethodnog_pdv_koji_se_ne_moze_odbiti }}</td>
+                    <td *ngIf="kolone[11]">{{ suma.oslobodjena_nabavka }}</td>
+                    <td *ngIf="kolone[12]">{{ suma.nabavka_od_lica_koja_nisu_obveznici_pdv }}</td>
+                    <td *ngIf="kolone[13]">{{ suma.naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv }}</td>
+                    <td *ngIf="kolone[14]">{{ suma.vrednost_uvoza_bez_pdv }}</td>
+                    <td *ngIf="kolone[15]">{{ suma.iznos_pdv }}</td>
+                    <td *ngIf="kolone[16]"></td>
+                    <td *ngIf="kolone[17]">{{ suma.vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika }}</td>
+                    <td *ngIf="kolone[18]">{{ suma.iznos_naknade_od_5_poljoprivredniku }}</td>
+                    <td colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="zamenaTabele" [hidden]="prikazaniRacuni.length != 0">{{ '_84' | translate }}</div>
+    </div>
+    <br>
+    <pagination-controls class="paginacija" responsive="true" [hidden]="prikazaniRacuni.length == 0" (pageChange)="p = $event" style="text-align: center" previousLabel="{{ '_86' | translate }}" nextLabel="{{ '_85' | translate }}"></pagination-controls>
+
+
+    <!-- --------- STAMPA ---------  -->
+    <button *ngIf="!stampa" id="dugmence" (click)="PreuzmiPDF()">{{ '_87' | translate }}</button>
+    <div *ngIf="stampa">
+        <button id="dugmence" (click)="PreuzmiPDF()">{{ '_88' | translate }}</button>&nbsp;
+        <button id="dugmence" (click)="ZatvoriStampu()">{{ '_89' | translate }}</button>
+    </div>
+
+    <div *ngIf="stampa" id="content" #content>
+        <h4 style="text-align: center;">{{ '_177' | translate }}</h4>
+        <h6 style="text-align: center;">{{ today | date:'dd.MM.yyy' }}</h6>
+        <br>
+        <table class="card-body table table-hover">
+            <thead>
+                <tr style="background-color: #eee;">
+                    <th *ngIf="kolone[0]">{{ '_148' | translate }}</th>
+                    <th *ngIf="kolone[1]">{{ '_150' | translate }}</th>
+                    <th *ngIf="kolone[2]">{{ '_151' | translate }}</th>
+                    <th *ngIf="kolone[3]">{{ '_152' | translate }}</th>
+                    <th *ngIf="kolone[4]">{{ '_153' | translate }}</th>
+                    <th *ngIf="kolone[5]">{{ '_154' | translate }}</th>
+                    <th *ngIf="kolone[6]">{{ '_155' | translate }}</th>
+                    <th *ngIf="kolone[7]">{{ '_156' | translate }}</th>
+                    <th *ngIf="kolone[8]">{{ '_157' | translate }}</th>
+                    <th *ngIf="kolone[9]">{{ '_158' | translate }}</th>
+                    <th *ngIf="kolone[10]">{{ '_159' | translate }}</th>
+                    <th *ngIf="kolone[11]">{{ '_160' | translate }}</th>
+                    <th *ngIf="kolone[12]">{{ '_161' | translate }}</th>
+                    <th *ngIf="kolone[13]">{{ '_162' | translate }}</th>
+                    <th *ngIf="kolone[14]">{{ '_163' | translate }}</th>
+                    <th *ngIf="kolone[15]">{{ '_164' | translate }}</th>
+                    <th *ngIf="kolone[16]">{{ '_165' | translate }}</th>
+                    <th *ngIf="kolone[17]">{{ '_166' | translate }}</th>
+                    <th *ngIf="kolone[18]">{{ '_167' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let k of prikazaniRacuni'>
+                    <td *ngIf="kolone[0]">{{ k.redni_broj }}</td>
+                    <td *ngIf="kolone[1]">{{ k.datum_knjizenja_isprave }}</td>
+                    <td *ngIf="kolone[2]">{{ k.naziv }}</td>
+                    <td *ngIf="kolone[3]">{{ k.sifra_partnera }}</td>
+                    <td *ngIf="kolone[4]">{{ k.pib }}</td>
+                    <td *ngIf="kolone[5]">{{ k.broj_racuna }}</td>
+                    <td *ngIf="kolone[6]">{{ k.datum_racuna }}</td>
+                    <td *ngIf="kolone[7]">{{ k.ukupna_naknada_sa_pdv }}</td>
+                    <td *ngIf="kolone[8]">{{ k.ukupan_iznos_obracunatog_prethodnog_pdv }}</td>
+                    <td *ngIf="kolone[9]">{{ k.iznos_prethodnog_pdv_koji_se_moze_odbiti }}</td>
+                    <td *ngIf="kolone[10]">{{ k.iznos_prethodnog_pdv_koji_se_ne_moze_odbiti }}</td>
+                    <td *ngIf="kolone[11]">{{ k.oslobodjena_nabavka }}</td>
+                    <td *ngIf="kolone[12]">{{ k.nabavka_od_lica_koja_nisu_obveznici_pdv }}</td>
+                    <td *ngIf="kolone[13]">{{ k.naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv }}</td>
+                    <td *ngIf="kolone[14]">{{ k.vrednost_uvoza_bez_pdv }}</td>
+                    <td *ngIf="kolone[15]">{{ k.iznos_pdv }}</td>
+                    <td *ngIf="kolone[16]">{{ k.datum_placanja_pri_uvozu_placanje_poljoprivredniku }}</td>
+                    <td *ngIf="kolone[17]">{{ k.vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika }}</td>
+                    <td *ngIf="kolone[18]">{{ k.iznos_naknade_od_5_poljoprivredniku }}</td>
+                </tr>
+                <tr [hidden]="prikazaniRacuni.length == 0" class="totals">
+                    <td colspan="2" *ngIf="kolone[0]">{{ '_176' | translate }}:&nbsp;{{ suma.redni_broj }}</td>
+                    <td *ngIf="kolone[2]"></td>
+                    <td *ngIf="kolone[3]"></td>
+                    <td *ngIf="kolone[4]"></td>
+                    <td *ngIf="kolone[5]"></td>
+                    <td *ngIf="kolone[6]"></td>
+                    <td *ngIf="kolone[7]">{{ suma.ukupna_naknada_sa_pdv }}</td>
+                    <td *ngIf="kolone[8]">{{ suma.ukupan_iznos_obracunatog_prethodnog_pdv }}</td>
+                    <td *ngIf="kolone[9]">{{ suma.iznos_prethodnog_pdv_koji_se_moze_odbiti }}</td>
+                    <td *ngIf="kolone[10]">{{ suma.iznos_prethodnog_pdv_koji_se_ne_moze_odbiti }}</td>
+                    <td *ngIf="kolone[11]">{{ suma.oslobodjena_nabavka }}</td>
+                    <td *ngIf="kolone[12]">{{ suma.nabavka_od_lica_koja_nisu_obveznici_pdv }}</td>
+                    <td *ngIf="kolone[13]">{{ suma.naknada_za_uvezena_dobra_na_koja_se_ne_placa_pdv }}</td>
+                    <td *ngIf="kolone[14]">{{ suma.vrednost_uvoza_bez_pdv }}</td>
+                    <td *ngIf="kolone[15]">{{ suma.iznos_pdv }}</td>
+                    <td *ngIf="kolone[16]"></td>
+                    <td *ngIf="kolone[17]">{{ suma.vrednost_primljenih_dobara_i_usluga_od_poljoprivrednika }}</td>
+                    <td *ngIf="kolone[18]">{{ suma.iznos_naknade_od_5_poljoprivredniku }}</td>
+                    <td colspan="2"></td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <br><br>
+        <h6>{{ '_178' | translate }}:</h6>
+        <table>
+        <tr>
+        <th *ngIf="kolone[0]">{{ '_149' | translate }}</th><td>&nbsp; - &nbsp;{{ '_148' | translate }}</td>
+        <tr>
+        <tr>
+        <th *ngIf="kolone[1]">{{ '_120' | translate }}</th><td>&nbsp; - &nbsp;{{ '_150' | translate }}</td>
+        </tr>
+        <tr>    
+        <th *ngIf="kolone[2]">{{ '_117' | translate }}</th><td>&nbsp; - &nbsp;{{ '_151' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[3]">{{ '_118' | translate }}</th><td>&nbsp; - &nbsp;{{ '_152' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[4]">{{ '_119' | translate }}</th><td>&nbsp; - &nbsp;{{ '_153' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[5]">{{ '_121' | translate }}</th><td>&nbsp; - &nbsp;{{ '_154' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[6]">{{ '_122' | translate }}</th><td>&nbsp; - &nbsp;{{ '_155' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[7]">{{ '_123' | translate }}</th><td>&nbsp; - &nbsp;{{ '_156' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[8]">{{ '_124' | translate }}</th><td>&nbsp; - &nbsp;{{ '_157' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[9]">{{ '_125' | translate }}</th><td>&nbsp; - &nbsp;{{ '_158' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[10]">{{ '_126' | translate }}</th><td>&nbsp; - &nbsp;{{ '_159' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[11]">{{ '_127' | translate }}</th><td>&nbsp; - &nbsp;{{ '_160' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[12]">{{ '_128' | translate }}</th><td>&nbsp; - &nbsp;{{ '_161' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[13]">{{ '_129' | translate }}</th><td>&nbsp; - &nbsp;{{ '_162' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[14]">{{ '_130' | translate }}</th><td>&nbsp; - &nbsp;{{ '_163' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[15]">{{ '_131' | translate }}</th><td>&nbsp; - &nbsp;{{ '_164' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[16]">{{ '_132' | translate }}</th><td>&nbsp; - &nbsp;{{ '_165' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[17]">{{ '_133' | translate }}</th><td>&nbsp; - &nbsp;{{ '_166' | translate }}</td>
+        </tr>
+        <tr>
+        <th *ngIf="kolone[18]">{{ '_134' | translate }}</th><td>&nbsp; - &nbsp;{{ '_167' | translate }}</td>
+        </tr>
+        </table>
+    </div>
+
+</div>

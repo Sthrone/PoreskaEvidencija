@@ -1,0 +1,52 @@
+<button *ngIf="!prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_81' | translate }}</button>
+<button *ngIf="prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_80' | translate }}</button>
+<div id="pretraga" *ngIf="prozorPrikazan">
+  <div class="row">
+    <div class="form-group col-md-3">
+      <input name="sifra_partnera" [(ngModel)]="sifra_partnera" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_69' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="naziv" [(ngModel)]="naziv" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_41' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="ulica" [(ngModel)]="ulica" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_42' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="broj_objekta" [(ngModel)]="broj_objekta" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_43' | translate }}"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <input name="mesto" [(ngModel)]="mesto" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_45' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-2">
+      <input name="postanski_broj" [(ngModel)]="postanski_broj" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_44' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-2">
+      <input name="ime_vlasnika" [(ngModel)]="ime_vlasnika" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_47' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-2">
+      <input name="prezime_vlasnika" [(ngModel)]="prezime_vlasnika" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_48' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-2">
+      <input name="telefon" [(ngModel)]="telefon" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_46' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-2">
+      <input name="email" [(ngModel)]="email" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_114' | translate }}"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <input name="pib" [(ngModel)]="pib" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_49' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="ziro_racun" [(ngModel)]="ziro_racun" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_50' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="maticni_broj" [(ngModel)]="maticni_broj" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_51' | translate }}"><br>
+    </div>
+    <div class="form-group col-md-3">
+      <input name="sifra_delatnosti" [(ngModel)]="sifra_delatnosti" (keyup)="Filtriraj()" class="form-control mr-sm-2" type="text" placeholder="{{ '_52' | translate }}"><br>
+    </div>
+  </div>
+</div>

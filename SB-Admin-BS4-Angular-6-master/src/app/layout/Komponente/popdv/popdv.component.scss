@@ -1,0 +1,842 @@
+#dugmence
+{
+    min-width: 300px;
+    font-weight: 550;
+    background-color: #e1e1e1;
+    border-color: #c2c0c0;
+    color: black;
+}
+
+#dugmence:hover
+{
+    background-color: #c2c0c0;
+}
+
+#pretraga
+{
+    border: 1px solid rgb(218, 215, 215);
+    background-color: rgb(236, 236, 236);
+    padding: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.neophodno
+{
+    color: red;
+}
+
+.gen.label
+{
+    font-weight: bold;
+}
+
+.help-block
+{
+    color: red;
+}
+
+/* ----------------------- */
+
+.vrh
+{
+   text-align: right;
+   font-size: 15px;
+   padding-bottom: 7px;
+}
+
+.naslovi
+{
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 0.5px;
+    
+    h5, h6
+    {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+}
+
+.mini-naslov
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.zbirni_naslov
+{
+    font-weight: bold;
+}
+
+.iznad
+{
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+//-------------------------------------------
+
+.tab01
+{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+
+    th
+    {
+        padding: 5px;
+        width: 35%;
+        vertical-align: middle;
+        border: 0.5px solid black;
+        font-weight: normal;
+    }
+
+    td
+    {
+        padding: 5px;
+        width: 65%;
+        vertical-align: middle;
+        border: 0.5px solid black;
+        font-weight: normal;
+    }
+
+    .info
+    {
+        padding: 5px;
+        padding-left: 15px;
+        text-align: left;
+    }
+
+}
+
+
+.tab02
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .veci_naslov
+    {
+        width: 80%;
+        padding: 8px;
+    }
+
+    .manji_naslov
+    {
+        width: 20%;
+        padding: 8px;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding-right: 7px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .vred
+    {
+        width: 20%;
+        text-align: center;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 70%;
+    }
+}
+
+
+.tab03
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .nasl_min
+    {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .veliki_naslov
+    {
+        width: 70%;
+        padding: 5px;
+    }
+
+    .srednji_naslov
+    {
+        width: 15%;
+        padding: 2px;
+    }
+
+    .mali_naslov
+    {
+        width: 7.5%;
+        padding: 2px;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding-right: 7px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 50%;
+    }
+
+    .vred
+    {
+        width: 7.5%;
+        text-align: center;
+    }
+
+    .dvred
+    {
+        width: 15%;
+        text-align: center;
+    }
+
+    .ogroman_naslov
+    {
+        width: 100%;
+        padding: 14px;
+        padding-top: 15px;
+    }
+}
+
+
+.tab04
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .veci_naslov
+    {
+        width: 75%;
+        padding: 14px;
+        padding-top: 15px;
+    }
+
+    .manji_naslov
+    {
+        width: 25%;
+        padding: 14px;
+        padding-top: 15px;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding: 2px;
+        padding-right: 7px;
+        padding-top: 3px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .vred
+    {
+        width: 25%;
+        text-align: center;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 2px;
+        padding-left: 5px;
+        padding-top: 3px;
+        width: 70%;
+    }
+}
+
+
+.tab05
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .nasl_min
+    {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .srednji_naslov
+    {
+        width: 25%;
+        padding: 2px;
+    }
+
+    .mali_naslov
+    {
+        width: 7.5%;
+        padding: 2px;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding-right: 7px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding-left: 5px;
+        width: 45%;
+    }
+
+    .vred
+    {
+        width: 25%;
+        text-align: center;
+    }
+
+    .dvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .ogroman_naslov
+    {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
+.tab06
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .nasl_min
+    {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .drugi_veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .srednji_naslov
+    {
+        width: 25%;
+        padding: 2px;
+    }
+
+    .mali_naslov
+    {
+        width: 12.5%;
+        padding: 2px;
+    }
+
+    .naslov_75
+    {
+        width: 75%;
+        padding: 5px;
+    }
+
+    .naslov_25
+    {
+        width: 25%;
+        padding: 5px;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding-right: 7px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 45%;
+    }
+
+    .ldesc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 70%;
+    }
+
+    .lldesc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 75%;
+        font-weight: bold;
+    }
+
+    .vred
+    {
+        width: 12.5%;
+        text-align: center;
+    }
+
+    .dvred
+    {
+        width: 25%;
+        text-align: center;
+    }
+
+    .cvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .ogroman_naslov
+    {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+
+.tab07
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .nasl_min
+    {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .drugi_veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .srednji_naslov
+    {
+        width: 25%;
+        padding: 2px;
+    }
+
+    .mali_naslov
+    {
+        width: 12.5%;
+        padding: 2px;
+    }
+
+    .naslov_75
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .naslov_25
+    {
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding-right: 7px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 45%;
+    }
+
+    .ldesc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 45%;
+    }
+
+    .lldesc
+    {
+        padding: 1px;
+        width: 75%;
+        font-weight: bold;
+    }
+
+    .vred
+    {
+        width: 12.5%;
+        text-align: center;
+    }
+
+    .dvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .cvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .ogroman_naslov
+    {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+
+.tab08
+{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+
+    th, td
+    {
+        border: 0.5px solid black;
+        vertical-align: middle;
+    }
+
+    p
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nasl
+    {
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .nasl_min
+    {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .drugi_veliki_naslov
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .srednji_naslov
+    {
+        width: 25%;
+        padding: 2px;
+    }
+
+    .mali_naslov
+    {
+        width: 12.5%;
+        padding: 2px;
+    }
+
+    .naslov_75
+    {
+        width: 50%;
+        padding: 5px;
+    }
+
+    .naslov_25
+    {
+        width: 50%;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .numeracija
+    {
+        text-align: right;
+        padding: 2px;
+        padding-right: 7px;
+        padding-top: 3px;
+        width: 5%;
+    }
+
+    .opis
+    {
+        text-align: left;
+    }
+
+    .ukupno
+    {
+        font-weight: bold;
+    }
+
+    .desc
+    {
+        padding: 1px;
+        padding-left: 5px;
+        width: 45%;
+    }
+
+    .ldesc
+    {
+        padding: 2px;
+        padding-left: 5px;
+        padding-top: 3px;
+        width: 45%;
+    }
+
+    .lldesc
+    {
+        padding: 1px;
+        width: 75%;
+        font-weight: bold;
+    }
+
+    .vred
+    {
+        width: 12.5%;
+        text-align: center;
+    }
+
+    .dvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .cvred
+    {
+        width: 50%;
+        text-align: center;
+    }
+
+    .ogroman_naslov
+    {
+        width: 100%;
+        padding: 5px;
+    }
+}

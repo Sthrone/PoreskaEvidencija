@@ -1,0 +1,85 @@
+<button *ngIf="!prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_82' | translate }}</button>
+<button *ngIf="prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_83' | translate }}</button>
+<div id="pretraga" class="form-group" *ngIf="prozorPrikazan">
+    <div class="row">
+      <div class="form-group col-md-2">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(0)" [checked]="kolone[0]"> {{ '_69' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(1)" [checked]="kolone[1]"> {{ '_70' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(2)" [checked]="kolone[2]"> {{ '_71' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(3)" [checked]="kolone[3]"> {{ '_72' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(4)" [checked]="kolone[4]"> {{ '_73' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(5)" [checked]="kolone[5]"> {{ '_114' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(6)" [checked]="kolone[6]"> {{ '_74' | translate }}
+            </label>
+        </div>
+      </div>
+        
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(7)" [checked]="kolone[7]"> {{ '_75' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-1">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(8)" [checked]="kolone[8]"> {{ '_76' | translate }}
+            </label>
+        </div>
+      </div>
+
+      <div class="form-group col-md-2">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="" (click)="PromeniVidljivostKolone(9)" [checked]="kolone[9]"> {{ '_77' | translate }}
+            </label>
+        </div>
+      </div>
+    </div>
+</div>

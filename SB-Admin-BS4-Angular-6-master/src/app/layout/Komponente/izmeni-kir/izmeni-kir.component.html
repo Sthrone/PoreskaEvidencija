@@ -1,0 +1,185 @@
+<div [@routerTransition]>
+  <app-page-header [pocetna]="'_15'" [ugnjezdena]="'_179'" [icon]="'far fa-file'"></app-page-header>
+
+    <!-- NAZIV KUPCA / SIFRA / PIB-JMBG -->
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label><span class="neophodno">* </span>{{ '_190' | translate }}:</label>
+                <ng-select 
+                    (change)="IzabranPartner()"
+                    name="naziv"  
+                    [items]="partneri"
+                    bindLabel="naziv"
+                    bindValue="id_partnera"
+                    [(ngModel)]="kir.id_partnera" 
+                    placeholder="{{ '_192' | translate }}"
+                    notFoundText="{{ '_193' | translate }}"
+                >
+                </ng-select>
+                <p class="help-block">{{ nazivGreska }}</p>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <fieldset disabled="">
+                <div class="form-group">
+                    <label for="disabledSelect">{{ '_191' | translate }}:</label>
+                    <input type="text" name="sifra_partnera" [(ngModel)]="sifraPartnera" class="form-control" disabled="">
+                    <p class="help-block"></p>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset disabled="">
+                <label for="disabledSelect">{{ '_119' | translate }}:</label>
+                <input type="text" name="pib" [(ngModel)]="pibPartnera" class="form-control" disabled="">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+    <br>
+
+    <!-- DATUM KNJIZENJA / BROJ RACUNA / DATUM RACUNA / UKUPNA NAKNADA -->
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('datum_knjizenja_isprave')">
+                <label><span class="neophodno">* </span>{{ '_120' | translate }}:</label>
+                <input type="text" name="datum_knjizenja_isprave" [(ngModel)]="kir.datum_knjizenja_isprave" class="form-control">
+                <p class="help-block">{{ datumKnjizenjaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('broj_racuna')">
+                <label><span class="neophodno">* </span>{{ '_121' | translate }}:</label>
+                <input type="text" name="broj_racuna" [(ngModel)]="kir.broj_racuna" class="form-control">
+                <p class="help-block">{{ brojRacunaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('datum_racuna')">
+                <label><span class="neophodno">* </span>{{ '_122' | translate }}:</label>
+                <input type="text" name="datum_racuna" [(ngModel)]="kir.datum_racuna" class="form-control">
+                <p class="help-block">{{ datumRacunaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <fieldset class="form-group" (change)="ProveraGreske('ukupna_naknada_sa_pdv')">
+                <label><span class="neophodno">* </span>{{ '_123' | translate }}:</label>
+                <input type="number" name="ukupna_naknada_sa_pdv" [(ngModel)]="kir.ukupna_naknada_sa_pdv" class="form-control">
+                <p class="help-block">{{ ukupnaNaknadaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>    
+    </div>
+
+ 
+    <!-- PROMET SA I BEZ PRAVA / PROMET SA PRAVOM / OSNOVICA 20% / PDV 20% -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group" (change)="ProveraGreske('ukupni_promet_sa_i_bez_prava_na_pdv')">
+                <label><span class="neophodno">* </span>{{ '_194' | translate }}:</label>
+                <input type="number" name="ukupni_promet_sa_i_bez_prava_na_pdv" [(ngModel)]="kir.ukupni_promet_sa_i_bez_prava_na_pdv" class="form-control">
+                <p class="help-block">{{ prometSaiBezPravaGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group" (change)="ProveraGreske('promet_sa_pravom_na_pdv')">
+                <label><span class="neophodno">* </span>{{ '_195' | translate }}:</label>
+                <input type="number" name="promet_sa_pravom_na_pdv" [(ngModel)]="kir.promet_sa_pravom_na_pdv" class="form-control">
+                <p class="help-block">{{ prometSaPravomGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('osnovica_20')">
+                <label><span class="neophodno">* </span>{{ '_196' | translate }}:</label>
+                <input type="number" name="osnovica_20" [(ngModel)]="kir.osnovica_20" class="form-control">
+                <p class="help-block">{{ osnovica20Greska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group" (change)="ProveraGreske('pdv_20')">
+                <label><span class="neophodno">* </span>{{ '_197' | translate }}:</label>
+                <input type="number" name="pdv_20" [(ngModel)]="kir.pdv_20" class="form-control">
+                <p class="help-block">{{ pdv20Greska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+
+    <!-- OSNOVICA 10% / PDV 10% / OSLOBODJENI PROMET SA ODBITKOM / OSLOBODJENI PROMET BEZ ODBITKOM -->
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_198' | translate }}:</label>
+                <input type="text" name="osnovica_10" [(ngModel)]="kir.osnovica_10" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_199' | translate }}:</label>
+                <input type="text" name="pdv_10" [(ngModel)]="kir.pdv_10" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_200' | translate }}:</label>
+                <input type="text" name="oslobodjeni_promet_sa_odbitkom" [(ngModel)]="kir.oslobodjeni_promet_sa_odbitkom" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_201' | translate }}:</label>
+                <input type="text" name="oslobodjeni_promet_bez_odbitka" [(ngModel)]="kir.oslobodjeni_promet_bez_odbitka" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+
+    <!-- INOSTRANSTVO SA PRAVOM NA ODBITAK / INOSTRANSTVO BEZ NAKNADE -->
+    <div class="row">
+        <div class="col-lg-4">
+            <fieldset class="form-group">
+                <label>{{ '_202' | translate }}:</label>
+                <input type="text" name="promet_u_inostranstvu_sa_pravom_na_odbitak" [(ngModel)]="kir.promet_u_inostranstvu_sa_pravom_na_odbitak" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <fieldset class="form-group">
+                <label>{{ '_203' | translate }}:</label>
+                <input type="text" name="promet_u_inostranstvu_bez_naknade" [(ngModel)]="kir.promet_u_inostranstvu_bez_naknade" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-ld-4">
+
+        </div>
+    </div>
+    <br>
+
+
+    <button (click)="SacuvajIzmene()" type="button" class="btn btn-secondary">{{ '_91' | translate }}</button>&nbsp;&nbsp;
+    <button (click)="VratiStareVrednosti()" type="button" class="btn btn-secondary">{{ '_92' | translate }}</button>&nbsp;&nbsp;
+    <button (click)="Nazad()" type="button" class="btn btn-secondary">{{ '_93' | translate }}</button>
+
+
+</div>
+  

@@ -1,0 +1,148 @@
+<div [@routerTransition]>
+    <app-page-header [pocetna]="'_12'" [ugnjezdena]="'_106'" [icon]="'fas fa-id-card'"></app-page-header>
+    
+    <!-- SIFRA / NAZIV -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group" (change)="ProveraGreske('sifra_partnera')">
+                <label><span class="neophodno">* </span>{{ '_40' | translate }}:</label>
+                <input type="text" name="sifra_partnera" [(ngModel)]="p.sifra_partnera" class="form-control" />
+                <p class="help-block">{{ sifraGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-5">
+            <fieldset class="form-group" (change)="ProveraGreske('naziv')">
+                <label><span class="neophodno">* </span>{{ '_41' | translate }}:</label>
+                <input type="text" name="naziv" [(ngModel)]="p.naziv" class="form-control">
+                <p class="help-block">{{ nazivGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+
+
+    <!-- MESTO / ULICA / BROJ / POSTA -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group" (change)="ProveraGreske('mesto')">
+                <label><span class="neophodno">* </span>{{ '_45' | translate }}:</label>
+                <input type="text" name="mesto" [(ngModel)]="p.mesto" class="form-control">
+                <p class="help-block">{{ mestoGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_42' | translate }}:</label>
+                <input type="text" name="ulica" [(ngModel)]="p.ulica" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_43' | translate }}:</label>
+                <input type="text" name="broj_objekta" [(ngModel)]="p.broj_objekta" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_44' | translate }}:</label>
+                <input type="text" name="postanski_broj" [(ngModel)]="p.postanski_broj" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>    
+    </div>
+
+
+    <!-- IME / PREZIME / TELEFON / EMAIL -->
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_47' | translate }}:</label>
+                <input type="text" name="ime_vlasnika" [(ngModel)]="p.ime_vlasnika" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset class="form-group">
+                <label>{{ '_48' | translate }}:</label>
+                <input type="text" name="prezime_vlasnika" [(ngModel)]="p.prezime_vlasnika" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_46' | translate }}:</label>
+                <input type="text" name="telefon" [(ngModel)]="p.telefon" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_114' | translate }}:</label>
+                <input type="text" name="email" [(ngModel)]="p.email" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+
+
+    <!-- PIB / ZIRO -->
+    <div class="row">
+        <div class="col-lg-4">
+            <fieldset class="form-group" (change)="ProveraGreske('pib')">
+                <label><span class="neophodno">* </span>{{ '_49' | translate }}:</label>
+                <input type="text" name="pib" [(ngModel)]="p.pib" class="form-control">
+                <p class="help-block">{{ pibGreska }}</p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <fieldset class="form-group">
+                <label>{{ '_50' | translate }}:</label>
+                <input type="text" name="ziro_racun" [(ngModel)]="p.ziro_racun" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+    </div>
+
+
+    <!-- PIB / ZIRO -->
+    <div class="row">
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_51' | translate }}:</label>
+                <input type="text" name="maticni_broj" [(ngModel)]="p.maticni_broj" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <fieldset class="form-group">
+                <label>{{ '_52' | translate }}:</label>
+                <input type="text" name="sifra_delatnosti" [(ngModel)]="p.sifra_delatnosti" class="form-control">
+                <p class="help-block"></p>
+            </fieldset>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+
+
+    <button (click)="SacuvajIzmene()" type="button" class="btn btn-secondary">{{ '_91' | translate }}</button>&nbsp;&nbsp;
+    <button (click)="VratiStareVrednosti()" type="button" class="btn btn-secondary">{{ '_92' | translate }}</button>&nbsp;&nbsp;
+    <button (click)="Nazad()" type="button" class="btn btn-secondary">{{ '_93' | translate }}</button>
+
+  
+</div>
+    

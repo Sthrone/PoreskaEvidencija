@@ -1,0 +1,61 @@
+<button *ngIf="!prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_213' | translate }}</button>
+<button *ngIf="prozorPrikazan" id="dugmence" type="button" (click)="ToggleSearch()" class="btn btn-secondary">{{ '_80' | translate }}</button>
+<div id="pretraga" *ngIf="prozorPrikazan">
+  <div class="row">
+    
+    <div class="col-md-1 radio">
+      <button (click)="Pretrazi(1)" [ngClass]="{'toggle-button': tip_pretrage == 2, 'toggle-selected': tip_pretrage == 1}">
+        <span *ngIf="tip_pretrage == 2">{{ '_168' | translate }}</span>
+        <span *ngIf="tip_pretrage == 1">{{ '_175' | translate }}</span>
+      </button>
+    </div>
+
+    <div class="col-md-3">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>{{ '_170' | translate }}:</label>
+          <input name="godina" [(ngModel)]="godina" class="form-control mr-sm-2" type="text" [disabled]="tip_pretrage == 2">
+        </div>
+        <div class="form-group col-md-6">
+          <label>{{ '_171' | translate }}:</label>
+          <input name="mesec" [(ngModel)]="mesec" class="form-control mr-sm-2" type="text" [disabled]="tip_pretrage == 2">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-1 radio">
+      <button (click)="Pretrazi(2)" [ngClass]="{'toggle-button': tip_pretrage == 1, 'toggle-selected': tip_pretrage == 2}">
+        <span *ngIf="tip_pretrage == 1">{{ '_169' | translate }}</span>
+        <span *ngIf="tip_pretrage == 2">{{ '_175' | translate }}</span>
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>{{ '_174' | translate }}:</label>
+          <ng-select 
+              name="naziv"  
+              [items]="partneri"
+              bindLabel="naziv"
+              bindValue="id_partnera"
+              [(ngModel)]="id_partnera" 
+              placeholder="{{ '_137' | translate }}"
+              notFoundText="{{ '_138' | translate }}"
+              [disabled]="tip_pretrage == 1"
+          >
+        </ng-select>
+        </div>
+        <div class="form-group col-md-4">
+          <label>{{ '_172' | translate }}:</label>
+          <input name="datum_od" [(ngModel)]="datum_od" class="form-control mr-sm-2" type="date" [disabled]="tip_pretrage == 1">
+        </div>
+        <div class="form-group col-md-4">
+          <label>{{ '_173' | translate }}:</label>
+          <input name="datum_do" [(ngModel)]="datum_do" class="form-control mr-sm-2" type="date" [disabled]="tip_pretrage == 1">
+        </div>
+      </div>
+    </div>
+  </div>

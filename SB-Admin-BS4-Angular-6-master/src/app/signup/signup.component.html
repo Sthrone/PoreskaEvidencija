@@ -1,0 +1,31 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
+            <h1>{{ '_1' | translate }}</h1>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group" (change)="ProveraNazivaFirme()">
+                        <input type="text" id="firma" name="firma" [(ngModel)]="k.naziv_firme" class="form-control input-underline input-lg" placeholder="{{ '_22' | translate }}" />
+                    </div>
+
+                    <div class="form-group" (change)="ProveraEmaila()">
+                        <input type="text" id="email" name="email" [(ngModel)]="k.email" class="form-control input-underline input-lg" placeholder="{{ '_23' | translate }}" />
+                    </div>
+
+                    <div class="form-group" (change)="ProveraSifre()">
+                        <input type="password" id="sifra01" name="sifra01" [(ngModel)]="k.lozinka" class="form-control input-underline input-lg" placeholder="{{ '_24' | translate }}" />
+                    </div>
+
+                    <div class="form-group" (change)="ProveraPonovljeneSifre()">
+                        <input type="password" id="sifra02" name="sifra02" [(ngModel)]="ponovljenaLozinka" class="form-control input-underline input-lg" placeholder="{{ '_25' | translate }}" />
+                    </div>
+                </div>
+
+                <a class="btn rounded-btn" href="javascript:void(0)" (click)="IzvrsiRegistraciju()">{{ '_26' | translate }}</a>
+                &nbsp;&nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/login']">{{ '_34' | translate }}</a>
+            </form>
+        </div>
+    </div>
+</div>
